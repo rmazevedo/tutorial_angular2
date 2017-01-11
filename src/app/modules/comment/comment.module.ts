@@ -4,7 +4,7 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { CommentResource } from '../../resource/comments.resource';
+import { ResourceModule } from '../../resource/resource.module';
 import { CommentUseCase } from '../../domain/comment.use-case';
 
 import { ItemCommentsComponent }  from './item-comments/item-comments.component';
@@ -16,11 +16,10 @@ import { CommentComponent }       from './comment/comment.component';
     RouterModule,
     BrowserModule,
     FormsModule,
-    HttpModule],
+    HttpModule,
+    ResourceModule],
 
-  providers: [
-    CommentResource,
-    CommentUseCase],
+  providers: [],
   
   declarations: [
     ItemCommentsComponent, 

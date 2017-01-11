@@ -4,8 +4,8 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { UserResource } from '../../resource/user.resource';
-import { UserUseCase } from '../../domain/user.use-case';
+import { DomainModule } from '../../domain/domain.module';
+import { ResourceModule } from '../../resource/resource.module';
 
 import { UserComponent } from './user/user.component';
 
@@ -14,11 +14,11 @@ import { UserComponent } from './user/user.component';
     RouterModule,
     BrowserModule,
     FormsModule,
-    HttpModule],
-  providers: [ 
-      UserResource,
-      UserUseCase
-    ],
+    HttpModule,
+    ResourceModule,
+    DomainModule
+  ],
+  providers: [],
   declarations: [ UserComponent ]
 })
 export class UserModule { }

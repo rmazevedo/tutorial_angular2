@@ -4,6 +4,8 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { ResourceModule } from '../../resource/resource.module';
+
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -12,10 +14,10 @@ import { HeaderComponent } from './header/header.component';
     RouterModule,
     BrowserModule,
     FormsModule,
-    HttpModule],
+    HttpModule,
+    ResourceModule
+  ],
   providers: [],
   declarations: []
- //     FooterComponent, 
- //     HeaderComponent]
 })
 export class SharedModule { }
