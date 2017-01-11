@@ -14,12 +14,14 @@
         <a class="title" href="{{item.url}}">
         {{item.title}}
         </a>
-        <span *ngIf="item.domain" class="domain">({{item.domain}})</span>
+        <span *ngIf="item.models" class="models">({{item.models}})</span>
       </p>
       <div class="subtext">
         <span>
         {{item.points}} points by
-          <a href="">{{item.user}}</a>
+          <a [routerLink]="['/user', item.user]">
+            {{item.user}}
+          </a>
         </span>
         <span>
           {{item.time_ago}}

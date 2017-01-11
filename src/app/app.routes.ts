@@ -1,19 +1,14 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { StoriesComponent } from './stories/stories.component';
-import { ItemCommentsComponent } from './item-comments/item-comments.component';
-import { UserComponent} from './user/user.component';
+import { ItemCommentsComponent }  from './modules/comment/item-comments/item-comments.component';
+import { UserComponent}           from './modules/user/user/user.component';
+import { StoriesComponent }      from './modules/stories/stories/stories.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'news/1', pathMatch : 'full'},
-  {path: 'news/:page', component: StoriesComponent, data: {storiesType: 'news'}},
-  {path: 'newest/:page', component: StoriesComponent, data: {storiesType: 'newest'}},
-  {path: 'show/:page', component: StoriesComponent, data: {storiesType: 'show'}},
-  {path: 'ask/:page', component: StoriesComponent, data: {storiesType: 'ask'}},
-  {path: 'jobs/:page', component: StoriesComponent, data: {storiesType: 'jobs'}},
+  {path: '', redirectTo: 'news', pathMatch : 'full'}, 
+  {path: 'news',    component: StoriesComponent},
   {path: 'item/:id', component: ItemCommentsComponent},
-  {path: 'user/:id', component: UserComponent},
-
+  {path: 'user/:id', component: UserComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

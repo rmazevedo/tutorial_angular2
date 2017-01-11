@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { HackernewsApiService } from '../hackernews-api.service';
+import { UserModel } from '../../../models/user.models';
+import { UserUseCase } from '../../../domain/user.use-case';
 
 @Component({
   selector: 'app-user',
@@ -11,10 +12,10 @@ import { HackernewsApiService } from '../hackernews-api.service';
 })
 export class UserComponent implements OnInit {
 	sub: any;
-  user; 
+  user: UserModel; 
 
-  constructor(
-    private _hackerNewsAPIService: HackernewsApiService, 
+  constructor( 
+    private userUseCase: UserUseCase,
     private route: ActivatedRoute,
     private _location: Location
   ) {}
@@ -22,7 +23,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       let userID = params['id'];
-      this._hackerNewsAPIService.fetchUser(userID).subscribe(data => {
+      this.userUseCase.fetchUser(userID).subscribe(data => {
         this.user = data;
       }, error => console.log('Could not load user'));
     });

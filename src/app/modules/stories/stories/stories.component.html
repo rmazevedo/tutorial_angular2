@@ -1,0 +1,11 @@
+<div class="main-content">
+  <div class="loading-section" *ngIf="!items">
+  </div>
+  <div *ngIf="items">
+    <ol>
+      <li *ngFor="let item of items" class="post">
+        <item class="item-block" [item]="item"></item>
+      </li>
+    </ol>
+  </div>
+</div>

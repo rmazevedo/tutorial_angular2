@@ -1,41 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule }       from '@angular/core';
+import { FormsModule }    from '@angular/forms';
+import { HttpModule }     from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { StoriesComponent } from './stories/stories.component';
-import { FooterComponent } from './footer/footer.component';
-import { ItemComponent } from './item/item.component';
+import { CommentModule }  from './modules/comment/comment.module';
+import { SharedModule }   from './modules/shared/shared.module';
+import { UserModule }     from './modules/user/user.module';
+import { StoriesModule }  from './modules/stories/stories.module';
 
-import { HackernewsApiService } from './hackernews-api.service';
-import { ItemCommentsComponent } from './item-comments/item-comments.component';
+import { AppComponent }   from './app.component';
+import { FooterComponent } from './modules/shared/footer/footer.component';
+import { HeaderComponent } from './modules/shared/header/header.component';
 
 import { routing } from './app.routes';
-import { CommentTreeComponent } from './comment-tree/comment-tree.component';
-import { CommentComponent } from './comment/comment.component';
-import { UserComponent } from './user/user.component';
 
 @NgModule({
+  imports: [
+    routing,
+    SharedModule,
+    CommentModule,
+    StoriesModule,
+    UserModule
+  ],
   declarations: [
     AppComponent,
-    HeaderComponent,
-    StoriesComponent,
-    FooterComponent,
-    ItemComponent,
-    ItemCommentsComponent,
-    CommentTreeComponent,
-    CommentComponent,
-    UserComponent
+    FooterComponent, 
+    HeaderComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing
-  ],
-  providers: [HackernewsApiService],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [
+    AppComponent]
 })
 export class AppModule { }
